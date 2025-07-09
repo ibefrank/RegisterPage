@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RegisterPage.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="25" VerticalOptions="Center">
+            <Image Source="logo.png" HeightRequest="100" WidthRequest="100" HorizontalOptions="Center"/>
+            <Label Text="Create an Account" FontSize="28" TextColor="White" HorizontalOptions="Center"/>
+
+            <Entry Placeholder="Full Name" Text="{Binding FullName}" PlaceholderColor="Gray" TextColor="White"/>
+            <Entry Placeholder="Email" Text="{Binding Email}" Keyboard="Email" PlaceholderColor="Gray" TextColor="White"/>
+            <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="True" PlaceholderColor="Gray" TextColor="White"/>
+            <Entry Placeholder="Confirm Password" Text="{Binding ConfirmPassword}" IsPassword="True" PlaceholderColor="Gray" TextColor="White"/>
+
+            <CheckBox IsChecked="{Binding TermsAccepted}" Color="#1F6FEB"/>
+            <Label Text="I agree to the TermsConditions" TextColor="Gray" FontSize="14"/>
+
+            <Button Text="Register"
+                    Command="{Binding RegisterCommand}"
+                    IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}"
+                    BackgroundColor="#1F6FEB"
+                    TextColor="White"
+                    CornerRadius="10"
+                    FontAttributes="Bold"/>
+
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="Already have an account?" TextColor="Gray"/>
+                <Label Text=" Login" TextColor="LightBlue" FontAttributes="Bold"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
